@@ -7,4 +7,8 @@ using ejs engine)
 2nd phase(using ejs mate )
 app.set('view engine','ejs');  // by default ejs ko read karne k liye express khud ka ek view engine use krta h but here we are using ejs-mate as a view engine  (go to ejs mate github for more info)
 it provides us various functionalities like layouts,partials etc (google it)
+
+to use patch request install method-override
+
+in version 1 ------ implemented basic crud functionality 
  

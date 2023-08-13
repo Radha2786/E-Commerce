@@ -1,4 +1,15 @@
+:root{
+    --main-color:#0077b6;
+}
 main{
     margin-top: 5.5rem;
     /* background-color: aqua; */
+}
+.products .card img{
+    height: 240px;
+    padding: 8px;
+}
+.products .btn{
+    background-color: var(--main-color);
+    color: white;
 }
