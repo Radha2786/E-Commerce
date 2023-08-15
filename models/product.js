@@ -1,26 +1,33 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
 const productSchema = new mongoose.Schema({
-   name:{
-    type:String,
-    trim:true,
-    required:true
-   },
-   img:{
-    type:String,
-    trim:true,
-    default:'/images/product.jpg'
-},
-price:{
-    type:Number,
-    min:0,
-    default:0
-},
-   desc:{
+  name: {
     type: String,
-    trim:true
-   }
+    trim: true,
+    required: true,
+  },
+  img: {
+    type: String,
+    trim: true,
+    default: "/images/product.jpg",
+  },
+  price: {
+    type: Number,
+    min: 0,
+    default: 0,
+  },
+  desc: {
+    type: String,
+    trim: true,
+  },
+  reviews: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      reference: "Review",
+    },
+  ],
+  // this will store all the ids of the reviews that comes oyy
 });
-const Product = mongoose.model('Product',productSchema);
+const Product = mongoose.model("Product", productSchema);
 
-module.exports=Product;
+module.exports = Product;

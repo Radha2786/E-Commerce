@@ -29,6 +29,11 @@ app.listen(port, () => {
   console.log(`app listening at port ${port}`);
 });
 
+// Routes
 const productRoutes = require("./routes/products");
 
+const reviewRoutes = require("./routes/reviews");
+
 app.use(productRoutes);
+
+app.use(reviewRoutes);

@@ -1,3 +1,5 @@
+https://www.linkedin.com/posts/ayush-s-dwivedee-502a42129_mern-features-sourcecode-activity-7096869882830499841-Y8Sa?utm_source=share&utm_medium=member_desktop  (food delivery app)
+
 setting up the basics 
 --------------------------
 1st Phase(like creating express app 
@@ -11,4 +13,13 @@ it provides us various functionalities like layouts,partials etc (google it)
 to use patch request install method-override
 
 in version 1 ------ implemented basic crud functionality 
- 
+ -------------------------------------------------------------------VERSION 2--------------------------------------------------
+ mongoose relationship 
+ creating a new user by creating a function AddUser then adding addresses by creating a function AddAdress (address add karne par user m change ho rha h to we have to save that change in database so we use .save  to database usko nayi entry ki trah treat karta hai and again id assign kar deta hai)
+
+-------------creating Reviews section------------------------- 
+
+in order to add review wher we are intially adding review id we have to use populate method which is provided by mongoose
+
+Populate = it will automatically replace the id in the reviews array with the actual document
+we also have to provide the reference of collection so we are providing ref:'Review' 

@@ -17,14 +17,26 @@
           <a href="#" class="btn btn-secondary">Add to cart</a>
           <a href="/products/<%=product._id%>/edit" class="btn btn-info">Edit</a>
           <!-- <a href="#" class="btn btn-danger">Delete</a> -->
-          <form class="d-inline-block"   action="/products/<%=product._id%>?_method=DELETE" method="POST">
-            <button class="btn btn-danger">Delete</button>
+          <form class="d-inline-block" action="/products/<%=product._id%>?_method=DELETE" method="POST">
+            <button class="btn btn-sm btn-danger">Delete</button>
           </form>
         </div>
       </div>
 
     </div>
-    <div class="col-md-6">
+    <div class="col-lg-4">
       <h1 class="display-6">Leave Your Review</h1>
+      <form action="/products/<%=product._id%>/review" method="POST">
+        <div class="mb-3">
+          <label class="form-label" for="rating">Rating</label>
+          <input class="form-control" type="range" min="0" max="5" name="rating" id="rating">
+        </div>
+        <div class="mb-3">
+          <label class="form-label" for="desc">Description</label>
+          <textarea class="form-control" name="comment" id="desc" rows="3"></textarea>
+        </div>
+        <button class="btn btn-success btn-sm">Submit</button>
+
+      </form>
     </div>
   </div>
