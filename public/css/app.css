@@ -6,8 +6,10 @@ main{
     /* background-color: aqua; */
 }
 .products .card img{
-    height: 240px;
-    padding: 8px;
+    /* height: 240px;
+    padding: 8px; */
+    height: 210px;
+    padding: 10px;
 }
 .products .btn{
     background-color: var(--main-color);

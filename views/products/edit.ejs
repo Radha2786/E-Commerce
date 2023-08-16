@@ -3,17 +3,20 @@
 
   <div class="row ">
     <div class="col-md-6 mx-auto">
-      <form action="/products/<%=product._id%>?_method=PATCH" method="POST">
+      <form action="/products/<%=product._id%>?_method=PATCH" class="needs-validation"  method="POST" novalidate>
 
         <div class="mb-3">
           <label for="exampleFormControlInput1" class="form-label">Product name</label>
           <input type="text" class="form-control input" id="name" placeholder="name" name="name"
-            value="<%=product.name%>">
+            value="<%=product.name%>" required>
         </div>
         <div class="mb-3">
           <label for="exampleFormControlInput1" class="form-label">Image-URL</label>
           <input type="text" class="form-control input" id="img" placeholder="Product image url" name="img"
-            value="<%=product.img%>">
+            value="<%=product.img%>" required>
+            <div class="valid-feedback">
+              Looks good!
+            </div>
         </div>
 
         <div class="mb-3">
@@ -21,12 +24,18 @@
           <div class="input-group mb-3">
             <span class="input-group-text" id="basic-addon1">$</span>
             <input type="number" name="price" class="form-control input" placeholder="price" aria-label="Username"
-              aria-describedby="basic-addon1" value="<%=product.price%>">
+              aria-describedby="basic-addon1" value="<%=product.price%>" required>
+              <div class="valid-feedback">
+                Looks good!
+              </div>
           </div>
         </div>
         <div class="mb-3">
           <label for="desc" class="form-control">Description</label>
-          <textarea class="form-control input" id="desc" name="desc" rows="5">  <%= product.desc %> </textarea>
+          <textarea class="form-control input" id="desc" name="desc" rows="5" required><%=product.desc%></textarea>
+          <div class="valid-feedback">
+            Looks good!
+          </div>
         </div>
         <!-- <a href="/products/<%=product._id%>" class="btn btn-sm btn-success">Save</a> -->
         <button class="btn btn-sm btn-success">Save</button>
