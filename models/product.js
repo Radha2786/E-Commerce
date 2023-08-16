@@ -23,7 +23,7 @@ const productSchema = new mongoose.Schema({
   reviews: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      reference: "Review",
+      ref: "Review",
     },
   ],
   // this will store all the ids of the reviews that comes oyy

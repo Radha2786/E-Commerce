@@ -6,10 +6,12 @@ const reviewSchema = new mongoose.Schema({
         min:0,
         max:5,
     },
-    Comment:{
+    comment:{
         type:String,
         trim:true,
-    }
+    },
+   
+}, {timestamps:true          // timestamps se automatically 2 fields add ho jayenge that is created at and updated at 
 })
 
 const Review = mongoose.model('Review',reviewSchema);
