@@ -26,3 +26,9 @@ we also have to provide the reference of collection so we are providing ref:'Rev
 
 ---------------------------------Session 31--------------------
 Middleware are basically just the functions 
+
+----------------------------------Version-3-----------------
+# added deleting reviews functionality when deleting product using post Middleware in product schema..
+# findByIdAndDelete automatically 2 functions ko chalata hai ek premiddleware or ek post Middleware (go through documentation)
+# added client side validation through bootstrap 
+# added server side validation using joi ---create schemas and all with the help of documentation
