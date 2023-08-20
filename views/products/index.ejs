@@ -1,27 +1,28 @@
 <% layout('layouts/boilerplate') -%>
     <!-- ye code likhe ke baad hum jo bhi cheej niche likhenge vo seedhe boilerplate wali file m body m jaake fit ho jayega -->
     <div class="row products">
-        <%for(let item of products){%>
-            <div class="col-lg-4 mb-3">
+        <%- include('../partials/navbar') %>
+            <%- include('../partials/flash') %>
+                <%for(let item of products){%>
+                    <div class="col-lg-4 mb-3">
+                        <div class="card text-center shadow-sm mx-auto></div> style=" width: 18rem;">
+                            <img src="<%=item.img%>" class="card-img-top" alt="product image">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <%= item.name %>
+                                </h5>
+                                <p class="card-text">
+                                    <%=item.desc%>...
+                                </p>
+                                <h5 class="card-title">
+                                    $<%= item.price %>
+                                </h5>
 
-                <div class="card text-center shadow-sm mx-auto></div> style=" width: 18rem;">
-                    <img src="<%=item.img%>" class="card-img-top" alt="product image">
-                    <div class="card-body">
-                        <h5 class="card-title">
-                            <%= item.name %>
-                        </h5>
-                        <p class="card-text">
-                            <%=item.desc%>...
-                        </p>
-                        <h5 class="card-title">
-                            $<%= item.price %>
-                        </h5>
-
-                        <a href="/products/<%=item._id%>" class="btn btn-info btn-sm">Show</a>
+                                <a href="/products/<%=item._id%>" class="btn btn-info btn-sm">Show</a>
+                            </div>
+                        </div>
                     </div>
-                </div>
-            </div>
 
-            <% } %>
+                    <% } %>
 
     </div>

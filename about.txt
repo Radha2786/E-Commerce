@@ -32,3 +32,8 @@ Middleware are basically just the functions
 # findByIdAndDelete automatically 2 functions ko chalata hai ek premiddleware or ek post Middleware (go through documentation)
 # added client side validation through bootstrap 
 # added server side validation using joi ---create schemas and all with the help of documentation
+
+-----------------------------Version-4--------------------------
+learn about cookies 
+learn about Session
+use flash-session npm package to display flash msgs like review added suucessfully
