@@ -21,6 +21,19 @@ module.exports.validateReview= (req,res,next)=>{
     next();
 }
 
+module.exports.isLoggedIn = (req, res, next) => {
+    
+    
+    req.session.returnUrl = req.originalUrl;
+
+    if (!req.isAuthenticated()) {
+        req.flash('error', 'You need to login first to do that!');
+        return res.redirect('/login');
+    }
+    next();
+
+}
+
 
 
 
