@@ -1,30 +1,43 @@
 <% layout('layouts/boilerplate') -%>
 
 
-<div class="row">
-    <div class="col-md-6 mx-auto">
-        <%- include('../partials/flash') %>
-        <h1 class="display-6">Sign Up</h1>
-        <form action="/register" method="POST">
-            <div class="mb-3">
-                <label class="form-label" for="username">Username</label>
-                <input class="form-control" type="text" id="username" name="username">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <%- include('../partials/flash') %>
+                <h1 class="display-6">Sign Up</h1>
+                <form action="/register" method="POST">
+                    <div class="mb-3">
+                        <label class="form-label" for="username">Username</label>
+                        <input class="form-control" type="text" id="username" name="username">
 
-            </div>
-            <div class="mb-3">
-                <label class="form-label" for="email">email</label>
-                <input class="form-control" type="email" id="email" name="email">
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="email">email</label>
+                        <input class="form-control" type="email" id="email" name="email">
 
-            </div>
-            <div class="mb-3">
-                <label class="form-label" for="password">password</label>
-                <input class="form-control" type="password" id="password" name="password">
+                    </div>
+                    <div class="mb-3">
+                        <p class="mb-2">Want to register as ?</p>
+                        <div class="mx-2">
+                            <label class="form-label" for="seller">Seller</label>
+                            <input class="form-check-input mt-0" type="radio" id="seller" name="role" value="seller"
+                                aria-label="Radio button for following text input">
+                        </div>
+                        <div class="mx-2">
+                            <label class="form-label" for="buyer">Buyer</label>
+                            <input class="form-check-input mt-0" type="radio" id="buyer" name="role" value="buyer"
+                                aria-label="Radio button for following text input">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label" for="password">password</label>
+                        <input class="form-control" type="password" id="password" name="password">
 
-            </div>
-            <button type="submit" class="btn btn-success btn-small">SignUp</button>
+                    </div>
+                    <button type="submit" class="btn btn-success btn-small">SignUp</button>
 
-          
-            
-        </form>
+
+
+                </form>
+        </div>
     </div>
-</div>

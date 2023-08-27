@@ -18,14 +18,14 @@ router.get("/register", (req, res) => {
 
 router.post("/register", async (req, res) => {
   try {
-    const { username, email, password } = req.body;
-    const user = new User({ username, email });
+    const { username, email, password,role } = req.body;
+    const user = new User({ username, email ,role});
     const NewUser = await User.register(user, password);
     req.login(NewUser, function (err) {
       if (err) {
         return next(err);
       }
-      req.flash("success", "Welcome! You are registered suucessfully");
+      req.flash("success", `Welcome ${req.user.username} ! You are registered suucessfully`);
       return res.redirect("/products");
     });
     // res.send(NewUser);
@@ -50,8 +50,12 @@ router.post(
   function (req, res) {
     // console.log(req.user);  //jab hum user ko authenticate karte hai to ye req.user wali cheej apni ap add ho jati hai which will contain everything about user
     req.flash("success", `Welcome back ${req.user.username} again!! `);
-    console.log("Logged in successfully");
-    res.redirect("/products");
+    // console.log("Logged in successfully");
+      let redirectUrl = req.session.returnUrl  || '/products';
+    // console.log(redirectUrl);
+    delete req.session.returnUrl ;
+    // res.redirect('/products');
+    res.redirect(redirectUrl);
   }
 );
 

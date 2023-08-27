@@ -50,3 +50,7 @@ there are various techniques like using third party authentication but here we a
 using package Passport local mongoose -- it will automatically add username and password field 
 
 register user using user.register method
+
+-----------------------------------version 6-------------------------
+1--home page se previous page par redirect kar rhe h  (error aa rha h jab login par post request ja rhi h to session reinitialize ho rha h)
+2-- authorization wali cheej add kar rhe h like is Author , isSelelr , isLogged in

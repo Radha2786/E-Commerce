@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Product = require("../models/product");
 // const Review = require("../models/review")
-const { validateProduct,isLoggedIn} = require('../middleware');
+const { validateProduct,isLoggedIn,isSeller,isProductAuthor} = require('../middleware');
 
 router.get("/products", async (req, res) => {
   try{
@@ -16,7 +16,7 @@ router.get("/products", async (req, res) => {
   
 });
 
-router.get("/products/new",isLoggedIn,async (req, res) => {
+router.get("/products/new",isLoggedIn, isSeller, async (req, res) => {
   try{
     res.render("products/new");
   }
@@ -26,10 +26,10 @@ router.get("/products/new",isLoggedIn,async (req, res) => {
   
 });
 
-router.post("/products", isLoggedIn,validateProduct,async (req, res) => {
+router.post("/products", isLoggedIn,isSeller,validateProduct,async (req, res) => {
   try{
     const { name, img, price, desc } = req.body;
-    await Product.create({ name,img, price, desc });
+    await Product.create({ name,img, price, desc ,author:req.user._id});
     req.flash('success', 'Added new product successfully');
     res.redirect("/products");
   }
@@ -58,7 +58,7 @@ router.get('/products/:id',async(req,res)=>{
 
 // edit a particular product
 
-router.get('/products/:id/edit',isLoggedIn, async(req,res)=>{
+router.get('/products/:id/edit',isLoggedIn, isProductAuthor, async(req,res)=>{
   try{
     const {id} = req.params;
     const product=await Product.findById(id);
@@ -70,7 +70,7 @@ router.get('/products/:id/edit',isLoggedIn, async(req,res)=>{
 
 })
 
-router.patch('/products/:id',isLoggedIn,validateProduct,async(req,res)=>{
+router.patch('/products/:id',isLoggedIn,validateProduct,isProductAuthor, async(req,res)=>{
   try{
     const {id} =  req.params;
   const{name,img,price,desc}=req.body;
@@ -84,7 +84,7 @@ router.patch('/products/:id',isLoggedIn,validateProduct,async(req,res)=>{
   
 })
 
-router.delete('/products/:id',isLoggedIn,async(req,res)=>{
+router.delete('/products/:id',isLoggedIn, isProductAuthor,async(req,res)=>{
   try{
   const {id} = req.params ;
   await Product.findByIdAndDelete(id);

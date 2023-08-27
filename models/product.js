@@ -28,6 +28,10 @@ const productSchema = new mongoose.Schema({
     },
   ],
   // this will store all the ids of the reviews that comes oyy
+  author:{
+    type:mongoose.Schema.Types.ObjectId,
+    ref:"User",
+  }
 });
 const Product = mongoose.model("Product", productSchema);
 
