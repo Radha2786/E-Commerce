@@ -37,6 +37,7 @@ Middleware are basically just the functions
 learn about cookies 
 learn about Session
 use flash-session npm package to display flash msgs like review added suucessfully
+(do average rating wali cheej by yourself)
 
 
 ------------------------------------version 5------------------------
@@ -44,13 +45,20 @@ use flash-session npm package to display flash msgs like review added suucessful
 ----------------------------------Authentocation--------------------
 kind of digital signature through which we identify whether the user is a valid user or not
 
---------------------------Passport Js-------------------------------
+-----------------Passport Js------------------------
 there are various techniques like using third party authentication but here we are doing authentication by just taking username and password
-
 using package Passport local mongoose -- it will automatically add username and password field 
-
 register user using user.register method
 
------------------------------------version 6-------------------------
+-----------------------------------version 6(session 35)-------------------------------
 1--home page se previous page par redirect kar rhe h  (error aa rha h jab login par post request ja rhi h to session reinitialize ho rha h)
 2-- authorization wali cheej add kar rhe h like is Author , isSelelr , isLogged in
+3-- ( password reset khud se karna )
+
+
+-------------------------------version 7--------------------------------------------
+1-- Add remove button for cart product deletion  (by yourself)
+2-- Add quantity button (by yourself)
+
+3-- Added liked functionality 
+4-- Added cart functionality  

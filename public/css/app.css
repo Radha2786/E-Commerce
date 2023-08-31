@@ -1,17 +1,34 @@
-:root{
-    --main-color:#0077b6;
+:root {
+    --main-color: #0077b6;
 }
-main{
+
+main {
     margin-top: 5.5rem;
     /* background-color: aqua; */
 }
-.products .card img{
+
+.products .card img {
     /* height: 240px;
     padding: 8px; */
     height: 210px;
     padding: 10px;
 }
-.products .btn{
+
+/* .products .btn{
     background-color: var(--main-color);
     color: white;
+} */
+
+.show-btn {
+    background-color: var(--main-color);
+    color: white;
+}
+
+.btn:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.fas.fa-heart{
+    color:red;
 }

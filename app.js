@@ -9,10 +9,18 @@ const session = require("express-session");
 const User = require('./models/user');
 var passport = require("passport");
 var LocalStrategy = require("passport-local");
-
-
-
 const flash = require("connect-flash");
+
+// Routes
+const productRoutes = require("./routes/products");
+const reviewRoutes = require("./routes/reviews");
+const authRoutes = require("./routes/auth");
+const cartRoutes = require("./routes/cart");
+
+// APIs
+const productApis = require('./routes/api/productapi')
+
+
 app.use(
   session({
     secret: "thisisnotagoodsecretkey",
@@ -53,10 +61,6 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use(methodOverride("_method"));
 
-app.listen(port, () => {
-  console.log(`app listening at port ${port}`);
-});
-
 app.use((req, res, next) => {
   res.locals.CurrentUser = req.user;   // current user jo logged in hai vo har template par display hoga
   res.locals.success = req.flash("success");
@@ -64,14 +68,17 @@ app.use((req, res, next) => {
   next();
 });
 
-// Routes
-const productRoutes = require("./routes/products");
-
-const reviewRoutes = require("./routes/reviews");
-
-const authRoutes = require("./routes/auth");
-
 app.use(productRoutes);
 
 app.use(reviewRoutes);
 app.use(authRoutes);
+app.use(productApis);
+app.use(cartRoutes); 
+
+
+app.listen(port, () => {
+  console.log(`app listening at port ${port}`);
+});
+
+
+
